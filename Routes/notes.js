@@ -1,3 +1,4 @@
+//required files and packages.
 const notes = require('express').Router();
 const { readAndAppend } = require('../helpers/fsUtils');
 const { writeToFile } = require('../helpers/fsUtils');
@@ -5,9 +6,10 @@ const noteData = require('../db/db.json');
 const uuid = require('../helpers/uuid')
 
 
-
+//get call to pull all current notes in the DB
 notes.get('/', (req, res) => res.json(noteData))
 
+//gets a specific note by ID Param
 notes.get('/:id', (req, res) => {
     const noteID = req.params.id;
     const note = noteData.find(_note => _note.id === noteID)
@@ -19,6 +21,7 @@ notes.get('/:id', (req, res) => {
     }
 })
 
+//gets a specific note by title param
 notes.get('/:title', (req, res) => {
     const noteID = req.params.id;
     const note = noteData.find(_note => _note.id === noteID)
@@ -30,7 +33,7 @@ notes.get('/:title', (req, res) => {
     }
 })
 
-
+//post call to add a new note to the db requires title and text. Generates a unique ID
 notes.post('/', (req, res) => {
 
     const {title, text} = req.body
@@ -53,6 +56,8 @@ notes.post('/', (req, res) => {
       }
 })
 
+
+//delete call to delete a specific note by note ID.
 notes.delete('/:id' , (req, res) => {
     const deleteNote = req.params.id;
     const checkNote = noteData.find(_note => _note.id === deleteNote)
@@ -72,4 +77,6 @@ notes.delete('/:id' , (req, res) => {
     }
 })
 
+
+//export calls
 module.exports = notes
