@@ -7,16 +7,11 @@
     {
         "title": "NewNote",
         "note": "I am new",
-        "note_Id": "ce26"
+        "id": "ce26"
     },
     {
         "title": "Hello",
         "text": "Testsetsets",
-        "note_Id": "8761"
-    },
-    {
-        "title": "Antoher New Note",
-        "text": "Hello Another one?",
-        "note_Id": "9430"
+        "id": "8761"
     }
 ]
