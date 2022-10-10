@@ -4,7 +4,7 @@ const path = require('path');
 const api = require('./Routes/index.js');
 
 //Static port
-const PORT = 3001;
+const PORT = 8080;
 
 //app to use express
 const app = express();
